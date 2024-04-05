@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FooWpf.Model"
+                    >
+
+    <DataTemplate x:Key="ProductDataTemplate">
+        <StackPanel>
+            <TextBlock Text="{Binding Path=ProductName}" />
+            <TextBlock Text="{Binding Path=Price}"/>
+            <TextBlock Text="{Binding Path=Image}"/>
+            <TextBlock Text="{Binding Path=ProductType}"/>
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

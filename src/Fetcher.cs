@@ -18,7 +18,7 @@ public class Fetcher
         try
         {
             // mimic delay test to ui 
-            await Task.Delay(5000);
+            await Task.Delay(2000);
 
             using HttpResponseMessage response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
@@ -67,6 +67,7 @@ public class Fetcher
             Console.WriteLine("\nException Caught!");
             Console.WriteLine("Message :{0} ", ex.Message);
         }
+        // transform to wpf model because poco mdnproduct cannot be used in wpf template!
         List<Product> products = new ();        
         foreach (var mdnProduct in result) 
         {

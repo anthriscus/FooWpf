@@ -16,35 +16,31 @@
         </ResourceDictionary>
     </Window.Resources>
 
-
-
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="22"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0">
-            <Button Command="{Binding UICommand}" 
+        <StackPanel Grid.Row="0" Grid.Column="0" Background="Violet" VerticalAlignment="Center" Height="32">
+            <Button Command="{Binding UICommand}" Width="70" Height="25" VerticalAlignment="Center" Margin="5,5,5,5"
                         CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}}}"
-                        Content="Button A">
+                        Content="Button">
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1">
-            <TextBox Width="500"  Height="25" Text="{Binding TextEntry,Mode=TwoWay}"></TextBox>
+        <StackPanel Grid.Row="0" Grid.Column="1" Background="Aqua" VerticalAlignment="Center" Height="32">
+            <TextBox Width="500"  Height="25" Text="{Binding TextEntry,Mode=TwoWay}" Margin="5,5,5,5"></TextBox>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="2">
+        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
             <Control Template="{StaticResource resultsviewer}"></Control>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Width="420" Height="170">
-            <ListBox MinWidth="400" Width="400" MinHeight="160" Height="160" Margin="10" ItemsSource="{Binding Products,Mode=OneWay}" 
-                     ItemTemplate="{StaticResource ProductDataTemplate}"/>
+        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
+            <Control Template="{StaticResource resultslistbox}"></Control>
         </StackPanel>
     </Grid>
 </Window>

@@ -15,30 +15,35 @@ namespace FooWpf.Model
 {
     public class Product : UserControl, INotifyPropertyChanged
     {
-        public static DependencyProperty ProductNameProperty = DependencyProperty.Register("Name", typeof(string), typeof(Product), new PropertyMetadata(null));
-        public static DependencyProperty PriceProperty = DependencyProperty.Register("Price", typeof(string), typeof(Product), new PropertyMetadata(null));
-        public static DependencyProperty ImageProperty = DependencyProperty.Register("Image", typeof(string), typeof(Product), new PropertyMetadata(null));
-        public static DependencyProperty ProductTypeProperty = DependencyProperty.Register("ProductType", typeof(string), typeof(Product), new PropertyMetadata(null));
+        public static DependencyProperty ProductNameProperty = Register<string>("Name");
+        public static DependencyProperty PriceProperty = Register<string>("Price");
+        public static DependencyProperty ImageProperty = Register<string>("Image");
+        public static DependencyProperty ProductTypeProperty = Register<string>("ProductType");
+
+        private static DependencyProperty Register<T>(string name) 
+        {
+            // they are all going to be set on the product and have null property meta data.
+            return DependencyProperty.Register(name, typeof(T), typeof(Product), new PropertyMetadata(null));
+        }
 
         [System.ComponentModel.Bindable(true)]
-        public string ProductName
+        public Object ProductName
         {
             get
             {
-                return (GetValue(ProductNameProperty) ?? "") as string;
+                return (GetValue(ProductNameProperty));
             }
             set
             {
                 SetValue(ProductNameProperty, value);
             }
         }
-
         [System.ComponentModel.Bindable(true)]
-        public string Price
+        public Object Price
         {
             get
             {
-                return (GetValue(PriceProperty) ?? "") as string;
+                return GetValue(PriceProperty);
             }
             set
             {
@@ -46,11 +51,11 @@ namespace FooWpf.Model
             }
         }
         [System.ComponentModel.Bindable(true)]
-        public string Image
+        public Object Image
         {
             get
             {
-                return (GetValue(ImageProperty) ?? "") as string;
+                return GetValue(ImageProperty);
             }
             set 
             { 
@@ -58,20 +63,21 @@ namespace FooWpf.Model
             }
         }
         [System.ComponentModel.Bindable(true)]
-        public string ProductType 
+        public Object ProductType 
         { 
             get 
             { 
-                return (GetValue(ProductTypeProperty) ?? "") as string; 
+                return GetValue(ProductTypeProperty); 
             }
             set 
                 { SetValue(ProductTypeProperty, value); 
             }
         }
 
-        public override string ToString()
+        public override string? ToString()
         {
-            return ProductName.ToString();
+            var s = ProductName?? String.Empty;
+            return s as string;
         }
         #region PropertyChanging
         public event PropertyChangedEventHandler? PropertyChanged;

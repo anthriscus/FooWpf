@@ -12,4 +12,20 @@
         </StackPanel>
     </DataTemplate>
 
+    <DataTemplate x:Key="HProductName">
+        <StackPanel>
+            <TextBlock Text="{Binding DataContext.LabelStrings[ProductName], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CProductName">
+        <StackPanel>
+            <TextBlock Text="{Binding Path=ProductName}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CProductPrice">
+        <StackPanel>
+            <TextBlock Text="{Binding Path=Price}" />
+        </StackPanel>
+    </DataTemplate>
 </ResourceDictionary>

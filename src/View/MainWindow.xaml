@@ -42,5 +42,28 @@
         <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
             <Control Template="{StaticResource resultslistbox}"></Control>
         </StackPanel>
+        <!--Try out a datagrid-->
+        <StackPanel Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" MaxHeight="100">
+            <Grid Background="DarkGoldenrod">
+                <DataGrid ItemsSource="{Binding Products}" 
+                          Margin="5,5,5,5"
+                          AutoGenerateColumns="False"
+                          HorizontalScrollBarVisibility="Visible" 
+                          VerticalScrollBarVisibility="Visible"
+                          HorizontalAlignment="Stretch"
+                          VerticalContentAlignment="Stretch"
+                          IsReadOnly="True"
+                          SelectionMode="Extended"
+                          SelectionUnit="FullRow"
+                          MaxHeight="90">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn HeaderTemplate="{StaticResource HProductName}" CellTemplate="{StaticResource CProductName}" ></DataGridTemplateColumn>
+                        <DataGridTextColumn Header="My Price" Binding="{Binding Path=Price}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="My Image" Binding="{Binding Path=Image}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="My Product Type" Binding="{Binding Path=ProductType}"></DataGridTextColumn>
+                    </DataGrid.Columns>                    
+                </DataGrid>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

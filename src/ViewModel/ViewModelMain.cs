@@ -19,6 +19,7 @@ public class ViewModelMain : INotifyPropertyChanged
     private string textEntry = string.Empty;
     private string textResult = string.Empty;
     private List<Product> products = new List<Product>();
+    private readonly LocalStrings localStrings = new ();
 
     public ViewModelMain() 
     {
@@ -95,6 +96,11 @@ public class ViewModelMain : INotifyPropertyChanged
             OnPropertyChanged("Products");
         }
     }
-
-
+    public LocalStrings LabelStrings
+    {
+        get 
+        { 
+            return localStrings; 
+        }
+    }
 }

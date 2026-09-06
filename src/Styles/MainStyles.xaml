@@ -66,7 +66,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" VerticalAlignment="Center">
-                <ListBox MinWidth="500" Margin="10" MaxHeight="100" Padding="5,5,5,5"
+                <ListBox MinWidth="500" Margin="5,5,5,5" MaxHeight="100" Padding="5,5,5,5"
                          ScrollViewer.VerticalScrollBarVisibility="Visible"
                          HorizontalContentAlignment="Stretch" 
                          VerticalContentAlignment="Stretch"
